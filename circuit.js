@@ -1,20 +1,22 @@
+//ALL BUTTONS ADDING AN EXERCISE TO THE WORKOUT
 let addToCart = document.querySelectorAll('.addToCart');
-
+//THE CARDS CONTAINING THE TIME OPTIONS
 let shortCard = document.getElementById('shortCard');
 let medCard = document.getElementById('medCard');
 let longCard = document.getElementById('longCard');
-
+//THE BUTTONS IN THE TIME CARDS
 let short = document.getElementById('short');
 let med = document.getElementById('med');
 let long = document.getElementById('long');
 let timeButtons = document.querySelectorAll('.timeSet');
-
+//THE ORDERED LIST RECIEVING THE EXERCISES
 let exercises = document.getElementById('exerciseList');
-
+//THE BUTTON TO START THE WORKOUT
 let start = document.getElementById('startWorkout');
-
+//ARRAY OF CHOSEN EXERCISES
 const chosenExercises = [];
 
+//ADDS EVENT LISTENERS TO EACH TIME BUTTON TO DISABLE AND FADE THE NON-CHOSEN OPTIONS
 for (let i of timeButtons) {
     i.addEventListener('click', function() {
         if (this.id === 'short') {
@@ -83,6 +85,7 @@ for (let i of timeButtons) {
     })
 }
 
+//ADDS AN EVENT LISTENER TO EACH 'ADD TO CIRCUIT' BUTTON AND ADDS CHOSEN EXERCISE TO THE EXERCISE ARRAY
 for (let i of addToCart) {
     i.addEventListener('click', function() {
         i.disabled = true;
@@ -102,6 +105,7 @@ for (let i of addToCart) {
     });
 }
 
+//HANDLES THE DISABLED STATE OF THE START BUTTON AND POPULATES THE CHOSEN EXERCISES INTO THE SIDEBAR
 function makeList() {
     if (chosenExercises.length === 0) {
         start.disabled = true;
@@ -118,12 +122,14 @@ function makeList() {
     }
 }
 
+//DELETES THE LIST TO PREVENT DUPLICATE PRINTING
 function removeList() {
     while (exercises.firstChild) {
         exercises.removeChild(exercises.firstChild);
     }
 }
 
+//REMOVES A CHOSEN EXERCISE FROM THE LIST AND THE ARRAY
 function removeExercise(event) {
     const ex = event.currentTarget.textContent;
     let e = chosenExercises.indexOf(ex);
@@ -143,7 +149,7 @@ function removeExercise(event) {
     }
 }
     
-
+//NOTIFIES USER THAT WORKOUT IS BEGINNING AND RESETS EVERYTHING
 function startWorkout() {
     alert('Your workout starts...NOW! Hope you remembered to stretch!');
     removeList();
