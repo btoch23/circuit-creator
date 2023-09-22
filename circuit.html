@@ -33,29 +33,29 @@
 
     <div class="row ps-3 pe-3 pb-4 text-center">
         <div class="col-sm mb-3 mb-sm-0">
-            <div class="card text-center">
+            <div id="shortCard" class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title">Short Circuit</h5>
                     <p class="card-text">Approx. 10-15 minutes<br>Choose up to 4 workouts</p>
-                    <button class="btn ps-4 pe-4">Choose Me</button>
+                    <button id="short" class="btn ps-4 pe-4 timeSet">Choose Me</button>
                 </div>
             </div>
         </div>
         <div class="col-sm">
-            <div class="card text-center">
+            <div id="medCard" class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title">Medium Circuit</h5>
                     <p class="card-text">Approx. 15-30 minutes<br>Choose up to 6 workouts</p>
-                    <button class="btn ps-4 pe-4">Choose Me</button>
+                    <button id="med" class="btn ps-4 pe-4 timeSet">Choose Me</button>
                 </div>
             </div>
         </div>
         <div class="col-sm">
-            <div class="card text-center">
+            <div id="longCard" class="card text-center">
                 <div class="card-body">
                     <h5 class="card-title">Long Circuit</h5>
                     <p class="card-text">Approx. 30-45 minutes<br>Choose up to 8 workouts</p>
-                    <button class="btn ps-4 pe-4">Choose Me</button>
+                    <button id="long" class="btn ps-4 pe-4 timeSet">Choose Me</button>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@
                     <img src="penguin.jpg" alt="..." class="card-img-top">
                     <h5 class="card-title pt-2">Push Ups</h5>
                     <button class="btn addToCart" type="button">
-                        Add to circuit
+                        Add to Circuit
                     </button>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                     <img src="penguin.jpg" alt="..." class="card-img-top">
                     <h5 class="card-title pt-2">Bicep Curls</h5>
                     <button class="btn addToCart" type="button">
-                        Add to circuit
+                        Add to Circuit
                     </button>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                     <img src="penguin.jpg" alt="..." class="card-img-top">
                     <h5 class="card-title pt-2">Overhead Press</h5>
                     <button class="btn addToCart" type="button">
-                        Add to circuit
+                        Add to Circuit
                     </button>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                     <img src="penguin.jpg" alt="..." class="card-img-top">
                     <h5 class="card-title">Squats</h5>
                     <button class="btn addToCart" type="button">
-                        Add to circuit
+                        Add to Circuit
                     </button>
                 </div>
             </div>
@@ -121,7 +121,7 @@
                     <img src="penguin.jpg" alt="..." class="card-img-top">
                     <h5 class="card-title">Leg Press</h5>
                     <button class="btn addToCart" type="button">
-                        Add to circuit
+                        Add to Circuit
                     </button>
                 </div>
             </div>
@@ -132,7 +132,7 @@
                     <img src="penguin.jpg" alt="..." class="card-img-top">
                     <h5 class="card-title">Lunges</h5>
                     <button class="btn addToCart" type="button">
-                        Add to circuit
+                        Add to Circuit
                     </button>
                 </div>
             </div>
@@ -147,7 +147,7 @@
                     <img src="penguin.jpg" alt="..." class="card-img-top">
                     <h5 class="card-title">Planks</h5>
                     <button class="btn addToCart" type="button">
-                        Add to circuit
+                        Add to Circuit
                     </button>
                 </div>
             </div>
@@ -158,7 +158,7 @@
                     <img src="penguin.jpg" alt="..." class="card-img-top">
                     <h5 class="card-title">Crunches</h5>
                     <button class="btn addToCart" type="button">
-                        Add to circuit
+                        Add to Circuit
                     </button>
                 </div>
             </div>
@@ -169,7 +169,7 @@
                     <img src="penguin.jpg" alt="..." class="card-img-top">
                     <h5 class="card-title">Bicycles</h5>
                     <button class="btn addToCart" type="button">
-                        Add to circuit
+                        Add to Circuit
                     </button>
                 </div>
             </div>
@@ -196,9 +196,11 @@
         </div>
         <div class="offcanvas-body">
             <ol id="exerciseList" class="list-group list-group-numbered pb-3">
+                <li>Your circuit is empty</li>
                 <!--EXERCISES POPULATE HERE-->
             </ol>
-            <button onclick="startWorkout()" id="startWorkout" class="btn" type="button">Start Workout!</button>
+            <button disabled="true" onclick="startWorkout()" id="startWorkout" class="btn" type="button">Add some
+                exercises!</button>
         </div>
     </div>
 
