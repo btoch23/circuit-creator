@@ -1,0 +1,52 @@
+#cart {
+    font-size: 2.5rem;
+    color: #FF7D00;
+}
+
+#brand {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    line-height: 100%;
+    color: #FF7D00;
+}
+
+#subtitle {
+    font-size: 1.8rem;
+    color: #FF7D00;
+}
+
+.navbar {
+    background-color: #15616D;
+    border-bottom: 4px solid #78290F;
+}
+
+.card {
+    color: #FFECD1;
+    background-color: #15616D;
+    border: 4px solid #78290F;
+}
+
+.card .btn {
+    background-color: #FF7D00;
+    color: #FFECD1;
+}
+
+#viewCart {
+    background-color: #FF7D00;
+    color: #FFECD1;
+}
+
+.offcanvas {
+    background-color: #FFECD1;
+}
+
+.list-group-item {
+    background-color: #FFECD1;
+    color: #001524;
+    border: 3px solid #78290F;
+}
+
+#startWorkout {
+    background-color: #FF7D00;
+    color: #FFECD1;
+}
