@@ -10,6 +10,15 @@
     color: #FF7D00;
 }
 
+.display-6 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+}
+
+.step {
+    font-weight: 600;
+}
+
 #subtitle {
     font-size: 1.8rem;
     color: #FF7D00;
