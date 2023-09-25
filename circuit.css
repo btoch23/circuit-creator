@@ -1,13 +1,21 @@
+:root {
+    --orange: #FF7D00;
+    --blue: #15616D;
+    --cream: #FFECD1;
+    --brown: #78290F;
+    --black: #001524;
+}
+
 #cart {
     font-size: 2.5rem;
-    color: #FF7D00;
+    color: var(--orange);
 }
 
 #brand {
     font-family: 'Oswald', sans-serif;
     font-size: 3rem;
     line-height: 100%;
-    color: #FF7D00;
+    color: var(--orange);
 }
 
 .display-6 {
@@ -21,41 +29,43 @@
 
 #subtitle {
     font-size: 1.8rem;
-    color: #FF7D00;
+    color: var(--orange);
 }
 
 .navbar {
-    background-color: #15616D;
-    border-bottom: 4px solid #78290F;
+    background-color: var(--blue);
+    border-bottom: 4px solid var(--brown);
 }
 
 .card {
-    color: #FFECD1;
-    background-color: #15616D;
-    border: 4px solid #78290F;
+    color: var(--cream);
+    background-color: var(--blue);
+    border: 4px solid var(--brown);
 }
 
 .card .btn {
-    background-color: #FF7D00;
-    color: #FFECD1;
+    background-color: var(--orange);
+    color: var(--cream);
 }
 
 #viewCart {
-    background-color: #FF7D00;
-    color: #FFECD1;
+    background-color: var(--orange);
+    color: var(--cream);
 }
 
 .offcanvas {
-    background-color: #FFECD1;
+    background-color: var(--cream);
 }
 
 .list-group-item {
-    background-color: #FFECD1;
-    color: #001524;
-    border: 3px solid #78290F;
+    background-color: var(--cream);
+    color: var(--black);
+    border: 3px solid var(--brown);
 }
 
 #startWorkout {
+    background-color: var(--orange);
+    color: var(--cream);
     background-color: #FF7D00;
     color: #FFECD1;
 }
