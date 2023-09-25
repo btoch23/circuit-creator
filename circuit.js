@@ -160,10 +160,46 @@ function startWorkout() {
         }
     }
     let empty = document.createElement('li');
-    empty.textContent = 'Your circuit is empty';
+    empty.textContent = 'It\'s go time!';
     exercises.appendChild(empty);
     start.disabled = true;
-    start.innerText = 'Add some exercises!';
+    start.innerText = 'Finish as many rounds as possible!';
 }
 
+//Countdown timer
+
+ // Change this to the desired countdown time
+  let countdownTime = 600;
+
+    // Get the timer element from the HTML
+    const timerElement = document.getElementById("timer");
+    document.getElementById("startWorkout").addEventListener('click', updateTimer)
+
+    // Function to update and display the countdown timer
+    function updateTimer() {
+        setInterval(() => {
+    
+      // Calculate minutes and seconds
+      const minutes = Math.floor(countdownTime / 60);
+      const seconds = countdownTime % 60;
+
+      // Display the remaining time
+      timerElement.textContent = `Countdown: ${minutes} minutes ${seconds} seconds`;
+
+      // Check if the countdown has reached zero
+      if (countdownTime === 0) {
+        clearInterval(timerInterval); // Stop the countdown when it reaches zero
+        timerElement.textContent = "Countdown expired!";
+      } else {
+        countdownTime--; // Decrement the countdown time
+      }
+    }, 1000);
+}
+
+    // Call the updateTimer function immediately to display the initial time
+    //updateTimer();
+
+    // Update the timer every second (1000 milliseconds)
+    //const timerInterval = setInterval(updateTimer, 1000);
+   
 

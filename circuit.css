@@ -66,4 +66,13 @@
 #startWorkout {
     background-color: var(--orange);
     color: var(--cream);
+    background-color: #FF7D00;
+    color: #FFECD1;
+}
+
+#timer {
+    font-size: 25px;
+    color: #15616D;
+    text-shadow: 2px 2px 5px #FF7D00;
+    text-align: center;
 }
