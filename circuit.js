@@ -13,8 +13,9 @@ let timeButtons = document.querySelectorAll('.timeSet');
 let lengthDisplay = document.querySelector('#circuitLength');
 //THE ORDERED LIST RECIEVING THE EXERCISES
 let exercises = document.getElementById('exerciseList');
-//THE BUTTON TO START THE WORKOUT
+//THE BUTTON TO START THE WORKOUT AND ITS EVENT LISTENER
 let start = document.getElementById('startWorkout');
+start.addEventListener('click', startWorkout);
 //ARRAY OF CHOSEN EXERCISES
 const chosenExercises = [];
 // Get the timer element from the HTML
@@ -154,6 +155,7 @@ function startWorkout() {
         if (!countdownTime) {
             throw new Error('Please choose a circuit length');
         } else {
+            start.removeEventListener('click', startWorkout);
             let empty = document.createElement('li');
             empty.className = 'display-6 pt-3 text-center';
             empty.textContent = 'It\'s go time!';
