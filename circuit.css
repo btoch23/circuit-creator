@@ -34,13 +34,11 @@
 
 .navbar {
     background-color: var(--blue);
-    border-bottom: 4px solid var(--brown);
 }
 
 .card {
     color: var(--cream);
     background-color: var(--blue);
-    border: 4px solid var(--brown);
 }
 
 .card .btn {
@@ -60,19 +58,19 @@
 .list-group-item {
     background-color: var(--cream);
     color: var(--black);
-    border: 3px solid var(--brown);
+    border: 2px solid var(--orange);
 }
 
 #startWorkout {
     background-color: var(--orange);
     color: var(--cream);
-    background-color: #FF7D00;
-    color: #FFECD1;
+    background-color: var(--orange);
+    color: var(--cream);
 }
 
 #timer {
     font-size: 25px;
     color: #15616D;
-    text-shadow: 2px 2px 5px #FF7D00;
+    text-shadow: 2px 2px 5px var(--orange);
     text-align: center;
 }

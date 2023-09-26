@@ -9,95 +9,90 @@ let short = document.getElementById('short');
 let med = document.getElementById('med');
 let long = document.getElementById('long');
 let timeButtons = document.querySelectorAll('.timeSet');
+//ELEMENT DISPLAYING CHOSEN LENGTH OF CIRCUIT
+let lengthDisplay = document.querySelector('#circuitLength');
 //THE ORDERED LIST RECIEVING THE EXERCISES
 let exercises = document.getElementById('exerciseList');
 //THE BUTTON TO START THE WORKOUT
 let start = document.getElementById('startWorkout');
 //ARRAY OF CHOSEN EXERCISES
 const chosenExercises = [];
+// Get the timer element from the HTML
+const timerElement = document.getElementById("timer");
+// Change this to the desired countdown time
+let countdownTime;
+let circuitLength;
 
 //ADDS EVENT LISTENERS TO EACH TIME BUTTON TO DISABLE AND FADE THE NON-CHOSEN OPTIONS
+//ALSO ACTIVATES THE ADDTOCART BUTTONS
 for (let i of timeButtons) {
     i.addEventListener('click', function() {
+        for (let i of addToCart) {
+            i.disabled = false;
+        }
         if (this.id === 'short') {
-            if (!med.disabled && !long.disabled) {
-                med.disabled = true;
-                long.disabled = true;
-            } else {
-                med.disabled = false;
-                long.disabled = false;
-            }
-            if (this.innerText === 'Choose Me') {
-                this.innerText = 'Undo';
-            } else {
-                this.innerText = 'Choose Me';
-            }
-            if (!medCard.style.opacity) {
-                medCard.style.opacity = '25%';
-                longCard.style.opacity = '25%';
-            } else {
-                medCard.style.opacity = null;
-                longCard.style.opacity = null;
-            }
+            circuitLength = 4;
+            lengthDisplay.innerText = '15 Minute Circuit'
+            countdownTime = 900;
+            med.disabled = true;
+            long.disabled = true;
+            medCard.style.opacity = '25%';
+            longCard.style.opacity = '25%';
+            this.innerText = 'Short Circuit Chosen';
+            this.disabled = true;
         } 
         if (this.id === 'med') {
-            if (!short.disabled && !long.disabled) {
-                short.disabled = true;
-                long.disabled = true;
-            } else {
-                short.disabled = false;
-                long.disabled = false;
-            }
-            if (this.innerText === 'Choose Me') {
-                this.innerText = 'Undo';
-            } else {
-                this.innerText = 'Choose Me';
-            }
-            if (!shortCard.style.opacity) {
-                shortCard.style.opacity = '25%';
-                longCard.style.opacity = '25%';
-            } else {
-                shortCard.style.opacity = null;
-                longCard.style.opacity = null;
-            }
+            circuitLength = 6;
+            lengthDisplay.innerText = '30 Minute Circuit'
+            countdownTime = 1800;
+            short.disabled = true;
+            long.disabled = true;
+            shortCard.style.opacity = '25%';
+            longCard.style.opacity = '25%';
+            this.innerText = 'Medium Circuit Chosen';
+            this.disabled = true;
         } 
         if (this.id === 'long') {
-            if (!med.disabled && !short.disabled) {
-                med.disabled = true;
-                short.disabled = true;
-            } else {
-                med.disabled = false;
-                short.disabled = false;
-            }
-            if (this.innerText === 'Choose Me') {
-                this.innerText = 'Undo';
-            } else {
-                this.innerText = 'Choose Me';
-            }
-            if (!medCard.style.opacity) {
-                medCard.style.opacity = '25%';
-                shortCard.style.opacity = '25%';
-            } else {
-                medCard.style.opacity = null;
-                shortCard.style.opacity = null;
-            }
+            circuitLength = 8;
+            lengthDisplay.innerText = '45 Minute Circuit'
+            countdownTime = 2700;
+            med.disabled = true;
+            short.disabled = true;
+            medCard.style.opacity = '25%';
+            shortCard.style.opacity = '25%';
+            this.innerText = 'Long Circuit Chosen';
+            this.disabled = true;
         } 
     })
 }
 
 //ADDS AN EVENT LISTENER TO EACH 'ADD TO CIRCUIT' BUTTON AND ADDS CHOSEN EXERCISE TO THE EXERCISE ARRAY
 for (let i of addToCart) {
+    i.disabled = true;
     i.addEventListener('click', function() {
         i.disabled = true;
         i.innerText = 'Added to Circuit!'
         let workout = this.previousElementSibling.innerHTML;
+        if (chosenExercises.length === circuitLength - 1) {
+            for (let i of addToCart) {
+                i.disabled = true;
+            }
+        } else if (chosenExercises.length === circuitLength - 1) {
+            for (let i of addToCart) {
+                i.disabled = true;
+            }
+        } else if (chosenExercises.length === circuitLength - 1) {
+            for (let i of addToCart) {
+                i.disabled = true;
+            }
+        }
         try {
-            if (!chosenExercises.includes(workout)) {
+            if (chosenExercises.includes(workout)) {
+                throw new Error('Exercise already chosen!');
+            } else {
                 chosenExercises.push(workout);
                 removeList();
                 makeList();
-            } else {
-                throw new Error('Exercise already chosen!');
             }
         } catch(error) {
             alert(error.message);
@@ -137,9 +132,12 @@ function removeExercise(event) {
     removeList();
     makeList();
     for (let i of addToCart) {
+        let exercise = i.previousElementSibling.innerHTML
         if (i.disabled && i.previousElementSibling.innerText === ex) {
             i.disabled = false;
             i.innerText = 'Add to Circuit';
+        } if (i.disabled && chosenExercises.length < circuitLength && !chosenExercises.includes(exercise)) {
+            i.disabled = false;
         }
     }
     if (chosenExercises.length === 0) {
@@ -149,57 +147,38 @@ function removeExercise(event) {
     }
 }
     
-//NOTIFIES USER THAT WORKOUT IS BEGINNING AND RESETS EVERYTHING
+//NOTIFIES USER THAT WORKOUT IS BEGINNING, STARTS THE TIMER, AND RESETS EVERYTHING
 function startWorkout() {
-    alert('Your workout starts...NOW! Hope you remembered to stretch!');
-    removeList();
-    chosenExercises.length = 0;
-    for (let i of addToCart) {
-        if (i.disabled) {
-            i.disabled = false;
+    timerElement.hidden = false;
+    try {
+        if (!countdownTime) {
+            throw new Error('Please choose a circuit length');
+        } else {
+            let empty = document.createElement('li');
+            empty.className = 'display-6 pt-3 text-center';
+            empty.textContent = 'It\'s go time!';
+            exercises.appendChild(empty);
+            start.disabled = true;
+            start.innerText = 'Finish as many rounds as possible!';
+            let timerInterval = setInterval(() => {
+                // Calculate minutes and seconds
+                const minutes = Math.floor(countdownTime / 60);
+                const seconds = countdownTime % 60;
+                // Display the remaining time
+                timerElement.textContent = `${minutes} minutes ${seconds} seconds`;
+                // Check if the countdown has reached zero
+                if (countdownTime === 0) {
+                    clearInterval(timerInterval); // Stop the countdown when it reaches zero
+                    timerElement.textContent = "Countdown expired!";
+                    chosenExercises.length = 0;
+                    removeList();
+                } else {
+                    countdownTime--; // Decrement the countdown time
+                }
+            }, 1000);
         }
+    } catch (error) {
+        timerElement.textContent = `${error.message}`;
     }
-    let empty = document.createElement('li');
-    empty.textContent = 'It\'s go time!';
-    exercises.appendChild(empty);
-    start.disabled = true;
-    start.innerText = 'Finish as many rounds as possible!';
+        
 }
-
-//Countdown timer
-
- // Change this to the desired countdown time
-  let countdownTime = 600;
-
-    // Get the timer element from the HTML
-    const timerElement = document.getElementById("timer");
-    document.getElementById("startWorkout").addEventListener('click', updateTimer)
-
-    // Function to update and display the countdown timer
-    function updateTimer() {
-        setInterval(() => {
-    
-      // Calculate minutes and seconds
-      const minutes = Math.floor(countdownTime / 60);
-      const seconds = countdownTime % 60;
-
-      // Display the remaining time
-      timerElement.textContent = `Countdown: ${minutes} minutes ${seconds} seconds`;
-
-      // Check if the countdown has reached zero
-      if (countdownTime === 0) {
-        clearInterval(timerInterval); // Stop the countdown when it reaches zero
-        timerElement.textContent = "Countdown expired!";
-      } else {
-        countdownTime--; // Decrement the countdown time
-      }
-    }, 1000);
-}
-
-    // Call the updateTimer function immediately to display the initial time
-    //updateTimer();
-
-    // Update the timer every second (1000 milliseconds)
-    //const timerInterval = setInterval(updateTimer, 1000);
-   
-
