@@ -78,14 +78,6 @@ for (let i of addToCart) {
             for (let i of addToCart) {
                 i.disabled = true;
             }
-        } else if (chosenExercises.length === circuitLength - 1) {
-            for (let i of addToCart) {
-                i.disabled = true;
-            }
-        } else if (chosenExercises.length === circuitLength - 1) {
-            for (let i of addToCart) {
-                i.disabled = true;
-            }
         }
         try {
             if (chosenExercises.includes(workout)) {
