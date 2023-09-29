@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circuit Workout Creator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="circuit.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="brians-exercise-app.js">
+    <link rel="stylesheet" href="brians-exercise-app.css">
+</head>
+
+<body style="background-color: #FFECD1; color: #001524;">
+    <nav class="navbar sticky-top">
+        <div class="container-fluid">
+            <a id="brand" href="#" class="navbar-brand ms-1">
+                Circuit Workout Creator<br>
+                <span id="subtitle" class="navbar-text">Build your perfect workout</span>
+            </a>
+            <button id="cart" class="btn me-2" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+                <i class="fa-solid fa-dumbbell ms-2 me-2"></i></button>
+        </div>
+    </nav>
+
+    <div class="container-flex pt-1 ps-3 pb-5">
+        <h5 class="display-6 pt-4 step">Step 1: Choose Circuit Length</h5>
+    </div>
+
+    <div class="row ps-3 pe-3 pb-4 text-center">
+        <div class="col-sm mb-3 mb-sm-0">
+            <div id="shortCard" class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Short Circuit</h5>
+                    <p class="card-text">Approx. 10-15 minutes<br>Choose up to 4 workouts</p>
+                    <button id="short" class="btn ps-4 pe-4 timeSet">Choose Me</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div id="medCard" class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Medium Circuit</h5>
+                    <p class="card-text">Approx. 15-30 minutes<br>Choose up to 6 workouts</p>
+                    <button id="med" class="btn ps-4 pe-4 timeSet">Choose Me</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div id="longCard" class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Long Circuit</h5>
+                    <p class="card-text">Approx. 30-45 minutes<br>Choose up to 8 workouts</p>
+                    <button id="long" class="btn ps-4 pe-4 timeSet">Choose Me</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-flex ps-3 pb-4 pt-5">
+        <h5 class="display-6 step">Step 2: Choose Exercises</h5>
+    </div>
+
+    <h5 class="display-6 ms-3 mb-4">Upper Body</h5>
+    <div class="row ps-3 pe-3">
+        <div class="col-sm mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <img src="pushup-img.png" alt="..." class="card-img-top" style="width: 80px;">
+                    <h5 class="card-title pt-2">Push Ups</h5>
+                    <button class="btn addToCart" type="button">
+                        Add to Circuit
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <img src="bicep-curls.png" alt="..." class="card-img-top" style="width: 50px;">
+                    <h5 class="card-title pt-2">Bicep Curls</h5>
+                    <button class="btn addToCart" type="button">
+                        Add to Circuit
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <img src="overhead-press.png" alt="..." class="card-img-top" style="width: 50px;">
+                    <h5 class="card-title pt-2">Overhead Press</h5>
+                    <button class="btn addToCart" type="button">
+                        Add to Circuit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h5 class="display-6 ms-3 mb-3 mt-3">Lower Body</h5>
+    <div class="row pt-3 ps-3 pe-3">
+        <div class="col-sm mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <img src="squats.png" alt="..." class="card-img-top" style="width: 60px;">
+                    <h5 class="card-title">Squats</h5>
+                    <button class="btn addToCart" type="button">
+                        Add to Circuit
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <img src="leg-press.png" alt="..." class="card-img-top" style="width: 70px;">
+                    <h5 class="card-title">Leg Press</h5>
+                    <button class="btn addToCart" type="button">
+                        Add to Circuit
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <img src="lunges.png" alt="..." class="card-img-top" style="width: 70px;">
+                    <h5 class="card-title">Lunges</h5>
+                    <button class="btn addToCart" type="button">
+                        Add to Circuit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h5 class="display-6 ms-3 mb-3 mt-3">Core</h5>
+    <div class="row pt-3 ps-3 pe-3 pb-4">
+        <div class="col-sm mb-3 mb-sm-0">
+            <div class="card">
+                <div class="card-body">
+                    <img src="planks.png" alt="..." class="card-img-top" style="width: 90px;">
+                    <h5 class="card-title">Planks</h5>
+                    <button class="btn addToCart" type="button">
+                        Add to Circuit
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <img src="crunches.png" alt="..." class="card-img-top" style="width: 70px;">
+                    <h5 class="card-title">Crunches</h5>
+                    <button class="btn addToCart" type="button">
+                        Add to Circuit
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <div class="card">
+                <div class="card-body">
+                    <img src="bicycles.png" alt="..." class="card-img-top" style="width: 80px;">
+                    <h5 class="card-title">Bicycles</h5>
+                    <button class="btn addToCart" type="button">
+                        Add to Circuit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-container ps-3 pt-5 pb-3">
+        <h5 class="display-6 step">Step 3: Finalize Your Circuit</h5>
+    </div>
+
+    <div class="container text-center mt-3 mb-5">
+        <button style="--bs-btn-padding-y: 1rem; --bs-btn-padding-x: 2rem; --bs-btn-font-size: 3rem;" id="viewCart"
+            class="btn " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+            aria-controls="offcanvasExample">View Your Circuit</button>
+    </div>
+
+
+    <!-- SIDEBAR -->
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Chosen Exercises:</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ol id="exerciseList" class="list-group list-group-numbered pb-3">
+                <li>Your circuit is empty</li>
+                <!--EXERCISES POPULATE HERE-->
+            </ol>
+            <button disabled="true" onclick="startWorkout()" id="startWorkout" class="btn" type="button">Add some
+                exercises!</button>
+        </div>
+    </div>
+    
+            
+    
+
+    <script src="circuit.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/18ad24633d.js" crossorigin="anonymous"></script>
+    <script src="brians-exercise-app.js"></script>
+</body>
+
+</html>
