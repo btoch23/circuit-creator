@@ -70,7 +70,7 @@
 
 #timer {
     font-size: 25px;
-    color: #15616D;
+    color: var(--blue);
     text-shadow: 2px 2px 5px var(--orange);
     text-align: center;
 }
