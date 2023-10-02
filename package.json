@@ -1,0 +1,24 @@
+{
+  "name": "workout-project",
+  "version": "1.0.0",
+  "description": "",
+  "source": "circuit.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btoch23/circuit-creator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/btoch23/circuit-creator/issues"
+  },
+  "homepage": "https://github.com/btoch23/circuit-creator#readme",
+  "devDependencies": {
+    "parcel": "^2.9.3"
+  }
+}
