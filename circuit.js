@@ -48,7 +48,6 @@ async function getExercises() {
         const response = await fetch(url, options);
         const result = await response.text();
         const jsonResult = JSON.parse(result);
-        console.log(jsonResult);
         displayExercises(jsonResult);
     } catch (error) {
         console.error(error);
@@ -175,7 +174,6 @@ function displayExercises(exercises) {
                     throw new Error('Exercise already chosen!');
                 } else {
                     chosenExercises.push(workout);
-                    console.log(chosenExercises);
                     removeList();
                     makeList();
                 }
