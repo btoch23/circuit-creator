@@ -37,13 +37,12 @@ const apiKey = process.env.API_KEY;
 const options = {
 	method: 'GET',
 	headers: {
-		'X-RapidAPI-Key': apiKey,
-		'X-RapidAPI-Host': 'exercises-by-api-ninjas.p.rapidapi.com'
+		'X-API-Key': apiKey
 	}
 };
 
 async function getExercises() {
-    const url = `https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises?muscle=${muscle}`;
+    const url = `https://api.api-ninjas.com/v1/exercises?muscle=${muscle}`;
     try {
         const response = await fetch(url, options);
         const result = await response.text();
