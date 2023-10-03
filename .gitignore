@@ -32,3 +32,6 @@ dist
 
 # Thumbnails
 ._*
+
+#Firebase
+.firebase

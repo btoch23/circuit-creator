@@ -271,5 +271,5 @@ function startWorkout() {
     } catch (error) {
         timerElement.textContent = `${error.message}`;
     }
-        
+       
 }
