@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT DETAILS -->
-<h3 align="center">Circuit Workout Creator</h3>
+<h1 align="center">Circuit Workout Creator</h1>
 
   <p align="center">
     Create your perfect workout
