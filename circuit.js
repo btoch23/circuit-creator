@@ -149,56 +149,30 @@ function displayExercises(exercises) {
         const instructions = document.createElement('p');
         instructions.className = 'card-text';
         instructions.textContent = exercises[i].instructions;
-        const dropDownText = instructions.textContent;
+        const instructionsBtn = document.createElement('button');
+        instructionsBtn.className = 'btn';
+        instructionsBtn.type = 'button';
+        instructionsBtn.innerText = 'Instructions';
+        const instructionsDiv = document.createElement('div');
+        instructionsDiv.className = 'dropdown dropdown-content';
+        instructionsDiv.textContent = instructions.textContent;
         const button = document.createElement('button');
         button.className = 'btn addToCart';
         button.type = 'button';
         button.innerText = 'Add To Circuit!';
         cardBody.appendChild(title);
-
-        // Dropdown Code
-
-        const newDiv = document.createElement('div');
-        const dropDownDiv = document.createElement('div');
-        dropDownDiv.className = 'dropdown';
-        let dropDownButton = document.createElement('button');
-        dropDownButton.onclick = myFunction;
-        dropDownButton.className = 'dropbtn';
-        dropDownButton.textContent = 'Instructions';
-        const dropDownContent = document.createElement('div');
-        dropDownContent.setAttribute('id', 'myDropDown');
-        dropDownContent.className = 'dropdown-content';
-        
-        cardBody.appendChild(newDiv);
-        newDiv.appendChild(dropDownDiv);
-        dropDownDiv.appendChild(dropDownButton);
-        dropDownButton.appendChild(dropDownContent);
-        dropDownContent.appendChild(instructions);
-
-        function myFunction() {
-            document.getElementById("myDropDown").classList.toggle("show");
-          }
-        
-          window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-              var dropdowns = document.getElementsByClassName("dropdown-content");
-              var i;
-              for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                  openDropdown.classList.remove('show');
-                }
-              }
-            }
-          }
-
-      
-        
+        cardBody.appendChild(instructionsBtn);
+        cardBody.appendChild(instructionsDiv);
         cardBody.appendChild(button);
         exerciseCard.appendChild(difficulty);
         exerciseCard.appendChild(cardBody);
         col.appendChild(exerciseCard);
         exerciseDiv.appendChild(col);
+
+        instructionsBtn.addEventListener('click', () => {
+            instructionsDiv.classList.toggle("show");
+        });
+
         button.addEventListener('click', () => {
             button.disabled = true;
             button.innerText = 'Added to Circuit!';
