@@ -140,12 +140,18 @@ function displayExercises(exercises) {
         cardBody.className = 'card-body';
         const col = document.createElement('div');
         col.className = 'col-4';
+
+        // title elements
         const title = document.createElement('h5');
         title.className = 'card-title';
         title.textContent = exercises[i].name;
+
+        // difficult elements
         const difficulty = document.createElement('header');
         difficulty.className = 'card-header';
         difficulty.textContent = exercises[i].difficulty;
+
+        // instruction elements
         const instructions = document.createElement('p');
         instructions.className = 'card-text';
         instructions.textContent = exercises[i].instructions;
@@ -156,10 +162,14 @@ function displayExercises(exercises) {
         const instructionsDiv = document.createElement('div');
         instructionsDiv.className = 'dropdown dropdown-content';
         instructionsDiv.textContent = instructions.textContent;
+
+        // button elements
         const button = document.createElement('button');
         button.className = 'btn addToCart';
         button.type = 'button';
         button.innerText = 'Add To Circuit!';
+
+        // adding elements to DOM
         cardBody.appendChild(title);
         cardBody.appendChild(instructionsBtn);
         cardBody.appendChild(instructionsDiv);
