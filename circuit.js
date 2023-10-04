@@ -132,6 +132,8 @@ abs.addEventListener('click', () => {
 //Populates the exercises from the API in the exercise div
 function displayExercises(exercises) {
     for (let i = 0; i < 6; i++) {
+
+
         const exerciseCard = document.createElement('div');
         exerciseCard.className = 'card mb-4 h-100';
         const cardBody = document.createElement('div');
@@ -147,12 +149,51 @@ function displayExercises(exercises) {
         const instructions = document.createElement('p');
         instructions.className = 'card-text';
         instructions.textContent = exercises[i].instructions;
+        const dropDownText = instructions.textContent;
         const button = document.createElement('button');
         button.className = 'btn addToCart';
         button.type = 'button';
         button.innerText = 'Add To Circuit!';
         cardBody.appendChild(title);
-        cardBody.appendChild(instructions);
+
+        // Dropdown Code
+
+        const newDiv = document.createElement('div');
+        const dropDownDiv = document.createElement('div');
+        dropDownDiv.className = 'dropdown';
+        let dropDownButton = document.createElement('button');
+        dropDownButton.onclick = myFunction;
+        dropDownButton.className = 'dropbtn';
+        dropDownButton.textContent = 'Instructions';
+        const dropDownContent = document.createElement('div');
+        dropDownContent.setAttribute('id', 'myDropDown');
+        dropDownContent.className = 'dropdown-content';
+        
+        cardBody.appendChild(newDiv);
+        newDiv.appendChild(dropDownDiv);
+        dropDownDiv.appendChild(dropDownButton);
+        dropDownButton.appendChild(dropDownContent);
+        dropDownContent.appendChild(instructions);
+
+        function myFunction() {
+            document.getElementById("myDropDown").classList.toggle("show");
+          }
+        
+          window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                  openDropdown.classList.remove('show');
+                }
+              }
+            }
+          }
+
+      
+        
         cardBody.appendChild(button);
         exerciseCard.appendChild(difficulty);
         exerciseCard.appendChild(cardBody);
@@ -273,3 +314,4 @@ function startWorkout() {
     }
        
 }
+
