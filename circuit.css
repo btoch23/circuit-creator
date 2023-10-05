@@ -1,5 +1,6 @@
 :root {
     --orange: #FF7D00;
+    --darkOrange: #c15d00;
     --blue: #15616D;
     --cream: #FFECD1;
     --brown: #78290F;
@@ -9,6 +10,11 @@
 #cart {
     font-size: 2.5rem;
     color: var(--orange);
+}
+
+#cart:hover {
+    background-color: var(--blue) !important;
+    color: var(--darkOrange);
 }
 
 #brand {
@@ -47,9 +53,22 @@
     margin: 5px;
 }
 
+.card .btn-success {
+    border: var(--orange) !important;
+}
+
+.btn:hover {
+    background-color: var(--darkOrange) !important;
+}
+
 #viewCart {
     background-color: var(--orange);
     color: var(--cream);
+    transition: transform 0.25s;
+}
+
+#viewCart:hover {
+    transform: translateY(-0.2em);
 }
 
 .offcanvas {

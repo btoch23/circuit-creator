@@ -132,8 +132,7 @@ abs.addEventListener('click', () => {
 //Populates the exercises from the API in the exercise div
 function displayExercises(exercises) {
     for (let i = 0; i < 6; i++) {
-
-
+        //card elements
         const exerciseCard = document.createElement('div');
         exerciseCard.className = 'card mb-4 h-100';
         const cardBody = document.createElement('div');
@@ -146,22 +145,30 @@ function displayExercises(exercises) {
         title.className = 'card-title';
         title.textContent = exercises[i].name;
 
-        // difficult elements
+        // difficulty elements
         const difficulty = document.createElement('header');
         difficulty.className = 'card-header';
         difficulty.textContent = exercises[i].difficulty;
 
         // instruction elements
         const instructions = document.createElement('p');
-        instructions.className = 'card-text';
+        instructions.className = 'card-text inst';
+        instructions.hidden = true;
         instructions.textContent = exercises[i].instructions;
         const instructionsBtn = document.createElement('button');
-        instructionsBtn.className = 'btn';
+        instructionsBtn.className = 'btn btn-success';
         instructionsBtn.type = 'button';
         instructionsBtn.innerText = 'Instructions';
-        const instructionsDiv = document.createElement('div');
-        instructionsDiv.className = 'dropdown dropdown-content';
-        instructionsDiv.textContent = instructions.textContent;
+
+        //adds event listener to toggle the instructions
+        instructionsBtn.addEventListener('click', () => {
+            if (instructions.hidden) {
+                instructions.hidden = false;
+            } else {
+                instructions.hidden = true;
+            }
+            
+        })
 
         // button elements
         const button = document.createElement('button');
@@ -172,17 +179,14 @@ function displayExercises(exercises) {
         // adding elements to DOM
         cardBody.appendChild(title);
         cardBody.appendChild(instructionsBtn);
-        cardBody.appendChild(instructionsDiv);
+        cardBody.appendChild(instructions);
         cardBody.appendChild(button);
         exerciseCard.appendChild(difficulty);
         exerciseCard.appendChild(cardBody);
         col.appendChild(exerciseCard);
         exerciseDiv.appendChild(col);
 
-        instructionsBtn.addEventListener('click', () => {
-            instructionsDiv.classList.toggle("show");
-        });
-
+        // add to cart event listener
         button.addEventListener('click', () => {
             button.disabled = true;
             button.innerText = 'Added to Circuit!';
@@ -207,6 +211,7 @@ function displayExercises(exercises) {
         });
     }
 }
+
 //removes the exercise list everytime a muscle button is clicked to prevent too many cards from populating
 function removeExercises() {
     while (exerciseDiv.firstChild) {
