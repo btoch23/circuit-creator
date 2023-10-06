@@ -11,7 +11,7 @@ let long = document.getElementById('long');
 let timeButtons = document.querySelectorAll('.timeSet');
 //ELEMENT DISPLAYING CHOSEN LENGTH OF CIRCUIT
 let lengthDisplay = document.querySelector('#circuitLength');
-//THE ORDERED LIST RECIEVING THE EXERCISES
+//THE ORDERED LIST RECEIVING THE EXERCISES
 let exercises = document.getElementById('exerciseList');
 //THE BUTTON TO START THE WORKOUT AND ITS EVENT LISTENER
 let start = document.getElementById('startWorkout');
@@ -231,7 +231,7 @@ function makeList() {
         let exercise = document.createElement('li');
         exercise.textContent = i;
         exercise.className = 'list-group-item';
-        // exercise.addEventListener('click', removeExercise);
+       //  exercise.addEventListener('click', removeExercise);
         exercises.appendChild(exercise);
     }
 }
